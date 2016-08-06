@@ -1,0 +1,88 @@
+@startuml
+
+'skinparam handwritten true 
+'skinparam monochrome true
+
+object Client
+
+package "Modified Region" #DDDDDD{
+abstract CompilerFactory {
+	+ CreateScanner()
+	+ CreateParser()
+	+ CreateCodeGenerator()
+	+ CreateOPtimizer()
+	+ CreateErrorHandler()
+}
+class HPCompilerFactory {
+	+ CreateScanner()
+	+ CreateParser()
+	+ CreateCodeGenerator()
+	+ CreateOPtimizer()
+	+ CreateErrorHandler()
+}
+class SunCompilerFactory {
+	+ CreateScanner()
+	+ CreateParser()
+	+ CreateCodeGenerator()
+	+ CreateOPtimizer()
+	+ CreateErrorHandler()
+}
+}
+
+abstract Scanner
+class HPScanner
+class SunScanner
+
+abstract CodeGenerator
+class HPCodeGenerator
+class SunCodeGenerator
+
+abstract Parser
+class HPParser
+class SunParser
+
+abstract Optimizer
+class HPOptimizer
+class SunOptimizer
+
+package "Added Region" #DDDDDD {
+abstract ErrorHandler
+class ErrorHandler
+class HPErrorHandler
+class SunErrorHandler
+}
+
+Client -right-> CompilerFactory
+
+CompilerFactory <|-- HPCompilerFactory
+CompilerFactory <|-- SunCompilerFactory
+
+Scanner <|-- HPScanner
+Scanner <|-- SunScanner
+
+CodeGenerator <|-- HPCodeGenerator
+CodeGenerator <|-- SunCodeGenerator
+
+Parser <|-- HPParser
+Parser <|-- SunParser
+
+Optimizer <|-- HPOptimizer
+Optimizer <|-- SunOptimizer
+
+ErrorHandler <|-- HPErrorHandler
+ErrorHandler <|-- SunErrorHandler
+
+
+HPCompilerFactory ..> HPScanner : create
+HPCompilerFactory ..> HPCodeGenerator : create
+HPCompilerFactory ..> HPParser : create
+HPCompilerFactory ..> HPOptimizer : create
+HPCompilerFactory ..> HPErrorHandler : create
+
+SunCompilerFactory ..> SunScanner : create
+SunCompilerFactory ..> SunCodeGenerator : create
+SunCompilerFactory ..> SunParser : create
+SunCompilerFactory ..> SunOptimizer : create
+SunCompilerFactory ..> SunErrorHandler : create
+
+@enduml

@@ -1,0 +1,34 @@
+@startuml
+
+'skinparam handwritten true 
+'skinparam monochrome true
+
+abstract Application {
+	+ NewDocument()
+	+ {abstract} CreateDocument()
+}
+
+class HwpApplication {
+	+ CreateDocument()
+}
+	
+class MsWordApplication {
+	+ CreateDocument()
+}
+
+class Document
+class MsWordDocument
+class HwpDodument
+
+Application o-left-> Document : docs
+
+Application <|-- HwpApplication
+Application <|-- MsWordApplication
+
+Document <|-- HwpDodument
+Document <|-- MsWordDocument
+ 
+HwpApplication ..> HwpDodument
+MsWordApplication ..> MsWordDocument
+
+@enduml

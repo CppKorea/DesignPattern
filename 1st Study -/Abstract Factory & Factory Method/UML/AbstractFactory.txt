@@ -1,0 +1,33 @@
+@startuml
+
+'skinparam handwritten true 
+'skinparam monochrome true
+
+object Client
+
+class CompilerFactory {
+	+ CreateScanner()
+	+ CreateParser()
+	+ CreateCodeGenerator()
+	+ CreateOPtimizer()
+}
+
+class HPCompilerFactory {
+	+ CreateScanner()
+	+ CreateParser()
+	+ CreateCodeGenerator()
+	+ CreateOPtimizer()
+}
+
+class SunCompilerFactory {
+	+ CreateScanner()
+	+ CreateParser()
+	+ CreateCodeGenerator()
+	+ CreateOPtimizer()
+}
+
+Client --> CompilerFactory
+CompilerFactory <|-- HPCompilerFactory
+CompilerFactory <|-- SunCompilerFactory
+
+@enduml

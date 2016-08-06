@@ -1,0 +1,70 @@
+@startuml
+
+'skinparam handwritten true 
+'skinparam monochrome true
+
+object Client
+
+abstract CompilerFactory {
+	+ CreateScanner()
+	+ CreateParser()
+	+ CreateCodeGenerator()
+	+ CreateOPtimizer()
+}
+class HPCompilerFactory {
+	+ CreateScanner()
+	+ CreateParser()
+	+ CreateCodeGenerator()
+	+ CreateOPtimizer()
+}
+class SunCompilerFactory {
+	+ CreateScanner()
+	+ CreateParser()
+	+ CreateCodeGenerator()
+	+ CreateOPtimizer()
+}
+
+abstract Scanner
+class HPScanner
+class SunScanner
+
+abstract CodeGenerator
+class HPCodeGenerator
+class SunCodeGenerator
+
+abstract Parser
+class HPParser
+class SunParser
+
+abstract Optimizer
+class HPOptimizer
+class SunOptimizer
+
+Client -right-> CompilerFactory
+
+CompilerFactory <|-- HPCompilerFactory
+CompilerFactory <|-- SunCompilerFactory
+
+Scanner <|-- HPScanner
+Scanner <|-- SunScanner
+
+CodeGenerator <|-- HPCodeGenerator
+CodeGenerator <|-- SunCodeGenerator
+
+Parser <|-- HPParser
+Parser <|-- SunParser
+
+Optimizer <|-- HPOptimizer
+Optimizer <|-- SunOptimizer
+
+HPCompilerFactory ..> HPScanner : create
+HPCompilerFactory ..> HPCodeGenerator : create
+HPCompilerFactory ..> HPParser : create
+HPCompilerFactory ..> HPOptimizer : create
+
+SunCompilerFactory ..> SunScanner : create
+SunCompilerFactory ..> SunCodeGenerator : create
+SunCompilerFactory ..> SunParser : create
+SunCompilerFactory ..> SunOptimizer : create
+
+@enduml

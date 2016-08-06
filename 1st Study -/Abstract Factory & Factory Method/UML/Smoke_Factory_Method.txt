@@ -1,0 +1,39 @@
+@startuml
+
+'skinparam handwritten true 
+'skinparam monochrome true
+
+class Context << (S,#FF7700) >> {
+	VkSurfaceKHR surfact
+}
+
+class Shell {
+	- Context ctx_
+	--
+	- create_swapchain() { create_surface(); }
+	- {abstract} create_surface()
+}
+
+class ShellWin32 {
+	create_surface() { surface = CreateWin32SurfaceKHR(); }
+}
+
+class ShellWayland {
+	create_surface() { surface = CreateWaylandSurfaceKHR(); }
+}
+
+class ShellXcb {
+	create_surface() { surface = CreateXcbSurfaceKHR(); }
+}
+
+Shell *-left-- Context
+
+Shell <|---- ShellWin32
+Shell <|---- ShellWayland
+Shell <|---- ShellXcb
+
+ShellWin32 ----> Context : ctx_.surface
+ShellWayland ----> Context : ctx_.surface
+ShellXcb ----> Context : ctx_.surface
+
+@enduml

@@ -1,0 +1,64 @@
+@startuml
+
+'skinparam handwritten true 
+'skinparam monochrome true
+
+object main {
+	+ createPlatform() { return new WaylandPlatform; }
+	+ createPlatform() { return new X11Platform; }
+}
+
+class tcu::Platform {
+	+ getGLPlatform()
+	+ getEGLPlatform()
+	+ getVulkanPlatform()
+}
+
+class WaylandPlatform {
+	+ getGLPlatform()
+	+ getEGLPlatform()
+	+ getVulkanPlatform()
+}
+
+class X11Platform {
+	+ getGLPlatform()
+	+ getEGLPlatform()
+	+ getVulkanPlatform()
+}
+
+abstract glu::Platform
+abstract vk::Platform
+abstract eglu::Platform
+
+class WaylandGLPlatform
+class WaylandVulkanPlatform
+class wayland::egl::Platform
+
+class X11GLPlatform
+class X11VulkanPlatform
+class x11::egl::Platform
+
+main --[hidden]down- tcu::Platform
+main --> WaylandPlatform
+main --> X11Platform
+
+tcu::Platform <|-- WaylandPlatform
+tcu::Platform <|-- X11Platform
+
+WaylandPlatform ..> WaylandGLPlatform : return
+WaylandPlatform ..> WaylandVulkanPlatform : return
+WaylandPlatform ..> wayland::egl::Platform : return
+
+X11Platform ..> X11GLPlatform : return
+X11Platform ..> X11VulkanPlatform : return
+X11Platform ..> x11::egl::Platform : return
+
+glu::Platform <|-- WaylandGLPlatform
+vk::Platform <|-- WaylandVulkanPlatform
+eglu::Platform <|-- wayland::egl::Platform 
+
+glu::Platform <|-- X11GLPlatform
+vk::Platform <|-- X11VulkanPlatform
+eglu::Platform <|-- x11::egl::Platform 
+
+@enduml

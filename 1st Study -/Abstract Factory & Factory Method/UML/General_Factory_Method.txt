@@ -1,0 +1,25 @@
+@startuml
+
+'skinparam handwritten true 
+'skinparam monochrome true
+
+abstract Product
+class ConcreteProduct
+
+abstract Creator {
+	+ {abstract} FactoryMethod()
+	+ AnOperation() { product = FactoryMethod(); }
+}
+
+class ConcreteCreator {
+	+ FactoryMethod() { return new ConcreteProduct; }
+}
+
+Product <-- ConcreteProduct
+
+Creator <|-- ConcreteCreator
+
+ConcreteCreator .left.> ConcreteProduct
+
+@enduml
+	

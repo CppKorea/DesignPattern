@@ -24,9 +24,20 @@
 ## 참고 교재
 
 - GoF의 디자인 패턴
+
+![Book1](https://github.com/CppKorea/DesignPatternStudy/blob/master/References/Reference%20Book%201.jpg)
+
 - Head First Design Patterns
+
+![Book2](https://github.com/CppKorea/DesignPatternStudy/blob/master/References/Reference%20Book%202.jpg)
+
 - 게임 프로그래밍 패턴
+
+![Book3](https://github.com/CppKorea/DesignPatternStudy/blob/master/References/Reference%20Book%203.jpg)
+
 - GoF 디자인 패턴! 이렇게 활용한다: C++로 배우는 패턴의 이해와 활용
+
+![Book4](https://github.com/CppKorea/DesignPatternStudy/blob/master/References/Reference%20Book%204.jpg)
 
 ## 일정
 

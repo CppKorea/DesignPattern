@@ -1,8 +1,8 @@
 //
 //  TextureCache.hpp
-//  fly_weight
+//  flyweight+proxy
 //
-//  Created by mac on 2016. 9. 2..
+//  Created by 남준현 on 2016. 9. 2..
 //  Copyright © 2016년 realtrick. All rights reserved.
 //
 
@@ -11,7 +11,7 @@
 #include <unordered_map>
 #include <string>
 
-class Sprite;
+class Texture2D;
 
 class TextureCache
 {
@@ -19,19 +19,19 @@ class TextureCache
 public:
     
     static TextureCache& getInstance();
-    Sprite* addImage(const std::string fileName);
+    Texture2D* addImage(const std::string& fileName);
     
-private:
-    
-    TextureCache() = default;
     virtual ~TextureCache() = default;
     
 private:
+
+    TextureCache() = default;
     
-    std::unordered_map<std::string, Sprite*> _textures;
+private:
+    
+    std::unordered_map<std::string, Texture2D*> _textures;
     
 };
-
 
 
 

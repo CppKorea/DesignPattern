@@ -1,12 +1,10 @@
 //
 //  Ref.cpp
-//  flyweight+proxy
+//  flyweight, proxy pattern
 //
-//  Created by 남준현 on 2016. 9. 2..
-//  Copyright © 2016년 realtrick. All rights reserved.
+//  Created by mac on 2016. 9. 3..
+//  Copyright © 2016년 남준현. All rights reserved.
 //
-
-#include <iostream>
 
 #include "Ref.hpp"
 #include "AutoreleasePool.hpp"
@@ -30,21 +28,18 @@ void Ref::retain()
 
 void Ref::release()
 {
-    if ( _referenceCount <= 0) return ;
-    
+    if ( _referenceCount <= 0 ) return ; // assert or throw
     
     _referenceCount--;
-    if ( _referenceCount == 0 )
-    {
-        std::cout << "deleted" << std::endl;
+    
+    if ( _referenceCount == 0)
         delete this;
-    }
 }
 
 
 void Ref::autorelease()
 {
-    AutoreleasePool::getInstance().addObject(this);
+    AutoreleasePool::getInstnace().addObject(this);
 }
 
 

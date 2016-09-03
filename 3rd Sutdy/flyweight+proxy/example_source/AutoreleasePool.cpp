@@ -1,9 +1,9 @@
 //
 //  AutoreleasePool.cpp
-//  flyweight+proxy
+//  flyweight, proxy pattern
 //
-//  Created by 남준현 on 2016. 9. 2..
-//  Copyright © 2016년 realtrick. All rights reserved.
+//  Created by mac on 2016. 9. 3..
+//  Copyright © 2016년 남준현. All rights reserved.
 //
 
 #include "AutoreleasePool.hpp"
@@ -21,16 +21,16 @@ AutoreleasePool::~AutoreleasePool()
 }
 
 
-AutoreleasePool& AutoreleasePool::getInstance()
+AutoreleasePool& AutoreleasePool::getInstnace()
 {
     static AutoreleasePool instance;
     return instance;
 }
 
 
-void AutoreleasePool::addObject(Ref* object)
+void AutoreleasePool::addObject(Ref* ref)
 {
-    _managedObjects.push_back(object);
+    _managedObjects.push_back(ref);
 }
 
 
@@ -38,7 +38,7 @@ void AutoreleasePool::clear()
 {
     std::vector<Ref*> releasings;
     releasings.swap(_managedObjects);
-    for(const auto& obj : releasings)
+    for( const auto & obj : releasings )
         obj->release();
 }
 

@@ -1,16 +1,15 @@
 //
 //  Sprite.cpp
-//  flyweight+proxy
+//  flyweight, proxy pattern
 //
-//  Created by 남준현 on 2016. 9. 2..
-//  Copyright © 2016년 realtrick. All rights reserved.
+//  Created by mac on 2016. 9. 3..
+//  Copyright © 2016년 남준현. All rights reserved.
 //
 
 #include <iostream>
 #include <new> // std::nothrow
 
 #include "Sprite.hpp"
-#include "Texture2D.hpp"
 #include "TextureCache.hpp"
 
 
@@ -18,12 +17,18 @@ Sprite::Sprite() :
 _fileName(""),
 _texture(nullptr)
 {
+//   _texture = TextureCache::getInstance().addImage(fileName);
+    
+    // 생성자의 문제점: 반환값이 없음.
+//    if (_texture) return true;
+//    return false;
 }
 
 
 Sprite::~Sprite()
 {
-    for(auto& child : _children)
+    std::cout << "~Sprite()" << std::endl;
+    for(auto child : _children)
         child->release();
 }
 
@@ -44,8 +49,8 @@ Sprite* Sprite::create(const std::string& fileName)
 bool Sprite::initWithFile(const std::string& fileName)
 {
     _fileName = fileName;
-    _texture = TextureCache::getInstance().addImage(fileName);
     
+    _texture = TextureCache::getInstance().addImage(fileName);
     if ( _texture ) return true;
     return false;
 }
@@ -53,18 +58,19 @@ bool Sprite::initWithFile(const std::string& fileName)
 
 void Sprite::draw()
 {
-    // draw self
+    // self draw
     std::cout << "draw [" << _fileName << "]" << std::endl;
-    for( auto& child : _children )
+    for(auto& child : _children)
         child->draw();
 }
 
 
-void Sprite::addChild(Sprite* object)
+void Sprite::addChild(Sprite* spr)
 {
-    object->retain();
-    _children.push_back(object);
+    spr->retain();
+    _children.push_back(spr);
 }
+
 
 
 

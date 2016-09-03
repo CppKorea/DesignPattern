@@ -1,19 +1,28 @@
 //
 //  TextureCache.cpp
-//  flyweight+proxy
+//  flyweight, proxy pattern
 //
-//  Created by 남준현 on 2016. 9. 2..
-//  Copyright © 2016년 realtrick. All rights reserved.
+//  Created by mac on 2016. 9. 3..
+//  Copyright © 2016년 남준현. All rights reserved.
 //
 
 #include "TextureCache.hpp"
 #include "Texture2D.hpp"
 
-
 TextureCache& TextureCache::getInstance()
 {
     static TextureCache instance;
     return instance;
+}
+
+
+TextureCache::TextureCache()
+{
+}
+
+
+TextureCache::~TextureCache()
+{
 }
 
 
@@ -26,7 +35,7 @@ Texture2D* TextureCache::addImage(const std::string& fileName)
     else
     {
         texture = new Texture2D(fileName);
-        _textures.insert({fileName, texture});
+        _textures.insert( {fileName, texture} );
     }
     
     return texture;

@@ -1,9 +1,9 @@
 //
 //  Ref.hpp
-//  flyweight+proxy
+//  flyweight, proxy pattern
 //
-//  Created by 남준현 on 2016. 9. 2..
-//  Copyright © 2016년 realtrick. All rights reserved.
+//  Created by mac on 2016. 9. 3..
+//  Copyright © 2016년 남준현. All rights reserved.
 //
 
 #pragma once

@@ -1,9 +1,9 @@
 //
 //  Sprite.hpp
-//  flyweight+proxy
+//  flyweight, proxy pattern
 //
-//  Created by 남준현 on 2016. 9. 2..
-//  Copyright © 2016년 realtrick. All rights reserved.
+//  Created by mac on 2016. 9. 3..
+//  Copyright © 2016년 남준현. All rights reserved.
 //
 
 #pragma once
@@ -27,8 +27,8 @@ public:
     bool initWithFile(const std::string& fileName);
     
     void draw();
-    void addChild(Sprite* object);
-    
+    void addChild(Sprite* spr);
+
 private:
     
     std::vector<Sprite*> _children;

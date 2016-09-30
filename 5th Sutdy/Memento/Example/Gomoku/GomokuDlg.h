@@ -7,9 +7,6 @@
 #include "GomokuBoard.h"
 #include <string>
 
-//한칸의 상태 세 가지 : 않놓은 상태, 검정돌, 희돌
-enum SITE { NONE, BLACK, WHITE };
-
 // CGomokuDlg 대화 상자
 class CGomokuDlg : public CDialogEx
 {
@@ -36,16 +33,12 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
+	afx_msg void OnBnClickedUndo();
 	DECLARE_MESSAGE_MAP()
 
 
 public:
 	GomokuBoard m_GoBoard;
-	BOOL m_WhTurn; //다음 둘 차례
-	SITE m_Board[19][19]; //바둑판에 돌이 놓인 상태를 보관한다.
-	void DrawBoard(CDC *pDC, int x, int y, SITE dol);
+	
 	void DrawBoard_(CDC *pDC, int x, int y, int dol);
-
-
-	afx_msg void OnBnClickedOk();
 };

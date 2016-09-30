@@ -11,7 +11,7 @@ using namespace std;
 #define GO_BOARD_SIZE     19
 
 class GoMemento {
-	friend class GoBoard;
+	friend class GoBoard;  //friend인 GoBoard만 접근
 public:
 	GoMemento() {
 		for (int i = 0; i < GO_BOARD_SIZE; i++)
@@ -98,9 +98,9 @@ public:
 		if (cnt <= 0) return;
 
 		for (auto i = 0; i < cnt - 1; i++) {
-			GoMemento *pTmpBoard = historyList_.front();
+			GoMemento *pTmpBoard = historyList_.front();  //첫번째 참조반환
 			delete pTmpBoard;
-			historyList_.pop_front();
+			historyList_.pop_front();  //데이터 삭제
 			totalStoneNum_--;
 		}
 
@@ -131,7 +131,7 @@ int main()
 {
 	GoBoard board;
 
-	board.PutStone(3, 3);
+	board.PutStone(3, 3);      //흑
 	board.PutStone(16, 16);
 	board.PutStone(16, 3);
 	board.PutStone(3, 16);
@@ -139,8 +139,10 @@ int main()
 
 	system("pause");
 
-	board.RetractStone(1);
+	board.RetractStone(1);  //물리기
 	board.PrintBoard();
 
 	system("pause");
+
+	return 0;
 }

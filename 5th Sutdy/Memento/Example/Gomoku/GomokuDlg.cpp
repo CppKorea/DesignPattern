@@ -65,7 +65,7 @@ BEGIN_MESSAGE_MAP(CGomokuDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_WM_LBUTTONDOWN()
-	ON_BN_CLICKED(IDOK, &CGomokuDlg::OnBnClickedOk)
+	ON_BN_CLICKED(ID_UNDO, &CGomokuDlg::OnBnClickedUndo)
 END_MESSAGE_MAP()
 
 
@@ -102,7 +102,6 @@ BOOL CGomokuDlg::OnInitDialog()
 
 	// TODO: 여기에 추가 초기화 작업을 추가합니다.
 
-	m_WhTurn = FALSE;
 
 	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.
 }
@@ -151,21 +150,21 @@ void CGomokuDlg::OnPaint()
 
 		//바둑판
 		int x, y;
-		for (x = 0;x<19;x++)
+		for (x = 0;x<GO_BOARD_SIZE;x++)
 		{
 			pDC->MoveTo(10, 10 + x * 20);
 			pDC->LineTo(370, 10 + x * 20);
 		}
-		for (x = 0;x<19;x++)
+		for (x = 0;x<GO_BOARD_SIZE;x++)
 		{
 			pDC->MoveTo(10 + x * 20, 10);
 			pDC->LineTo(10 + x * 20, 370);
 		}
 
 		//돌 그림
-		for (x = 0;x<19;x++)
+		for (x = 0;x<GO_BOARD_SIZE;x++)
 		{
-			for (y = 0;y<19;y++)
+			for (y = 0;y<GO_BOARD_SIZE;y++)
 			{	
 				DrawBoard_(pDC, x, y, m_GoBoard.GetStone(x, y)); 
 			}
@@ -220,7 +219,7 @@ void CGomokuDlg::OnLButtonDown(UINT nFlags, CPoint point)
 	ay = point.y / 20;
 
 	//바둑판 안이어야 하고 돌이 놓이지 않는 자리여야 한다.
-	if ((ax<0) || (ax >= 19) || (ay<0) || (ay >= 19)) return;
+	if ((ax<0) || (ax >= GO_BOARD_SIZE) || (ay<0) || (ay >= GO_BOARD_SIZE)) return;
 
 	m_GoBoard.PutStone(ax, ay);
 
@@ -230,7 +229,7 @@ void CGomokuDlg::OnLButtonDown(UINT nFlags, CPoint point)
 }
 
 
-void CGomokuDlg::OnBnClickedOk()
+void CGomokuDlg::OnBnClickedUndo()
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 	m_GoBoard.RetractStone(1);

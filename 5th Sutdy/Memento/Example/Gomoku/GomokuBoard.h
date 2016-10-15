@@ -136,9 +136,9 @@ public:
 		{
 			for (auto iter = AfterList_.begin(); iter != AfterList_.end(); iter++)
 			{
-				totalStoneNum_--;
 				delete *iter;
 			}
+			AfterList_.clear();
 			bReact = false;
 		}
 	}
@@ -152,12 +152,6 @@ public:
 		// -------------------------------------------
 		if (cnt <= 0) return;
 
-		//AfterList_.clear();
-
-		//for (auto iter = AfterList_.begin(); iter != AfterList_.end(); iter++)
-		//{
-		//	delete *iter;
-		//}
 		bReact = true;
 		totalStoneNum_--;
 		whoseTurn_ *= -1;
@@ -170,7 +164,7 @@ public:
 		{
 			GoMemento *pTmpBoard = historyList_.front();
 			AfterList_.push_front(pTmpBoard);
-			//delete pTmpBoard;
+			
 			historyList_.pop_front();
 
 			if (historyList_.empty())

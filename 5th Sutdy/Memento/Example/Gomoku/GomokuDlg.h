@@ -41,4 +41,5 @@ public:
 	GomokuBoard m_GoBoard;
 	
 	void DrawBoard_(CDC *pDC, int x, int y, int dol);
+	afx_msg void OnBnClickedRedo();
 };

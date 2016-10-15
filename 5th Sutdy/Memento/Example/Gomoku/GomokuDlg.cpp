@@ -66,6 +66,7 @@ BEGIN_MESSAGE_MAP(CGomokuDlg, CDialogEx)
 	ON_WM_QUERYDRAGICON()
 	ON_WM_LBUTTONDOWN()
 	ON_BN_CLICKED(ID_UNDO, &CGomokuDlg::OnBnClickedUndo)
+	ON_BN_CLICKED(ID_REDO, &CGomokuDlg::OnBnClickedRedo)
 END_MESSAGE_MAP()
 
 
@@ -232,8 +233,19 @@ void CGomokuDlg::OnLButtonDown(UINT nFlags, CPoint point)
 void CGomokuDlg::OnBnClickedUndo()
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
-	m_GoBoard.RetractStone(1);
+	m_GoBoard.RetractStone(3);
 
+	Invalidate();
+	UpdateWindow();
+	Invalidate(FALSE);
+}
+
+
+void CGomokuDlg::OnBnClickedRedo()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+
+	m_GoBoard.AfterActStone();
 	Invalidate();
 	UpdateWindow();
 	Invalidate(FALSE);

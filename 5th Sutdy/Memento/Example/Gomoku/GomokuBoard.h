@@ -72,6 +72,7 @@ public:
 		pCurBoard_ = nullptr;
 		whoseTurn_ = firstTurn;
 		totalStoneNum_ = 0;
+		bReact = false;
 
 		Init();
 	}
@@ -79,6 +80,11 @@ public:
 	~GomokuBoard()
 	{
 		for (auto iter = historyList_.begin(); iter != historyList_.end(); iter++) 
+		{
+			delete *iter;
+		}
+
+		for (auto iter = AfterList_.begin(); iter != AfterList_.end(); iter++)
 		{
 			delete *iter;
 		}
@@ -125,6 +131,16 @@ public:
 
 		historyList_.push_front(pNewBoard);
 		pCurBoard_ = pNewBoard;
+
+		if (bReact)
+		{
+			for (auto iter = AfterList_.begin(); iter != AfterList_.end(); iter++)
+			{
+				totalStoneNum_--;
+				delete *iter;
+			}
+			bReact = false;
+		}
 	}
 
 	void RetractStone(int cnt) 
@@ -136,8 +152,15 @@ public:
 		// -------------------------------------------
 		if (cnt <= 0) return;
 
-		
+		//AfterList_.clear();
+
+		//for (auto iter = AfterList_.begin(); iter != AfterList_.end(); iter++)
+		//{
+		//	delete *iter;
+		//}
+		bReact = true;
 		totalStoneNum_--;
+		whoseTurn_ *= -1;
 		if (historyList_.empty())
 		{
 			delete pCurBoard_;
@@ -146,7 +169,8 @@ public:
 		else
 		{
 			GoMemento *pTmpBoard = historyList_.front();
-			delete pTmpBoard;
+			AfterList_.push_front(pTmpBoard);
+			//delete pTmpBoard;
 			historyList_.pop_front();
 
 			if (historyList_.empty())
@@ -158,9 +182,24 @@ public:
 		}
 	}
 
+	void AfterActStone()
+	{
+		totalStoneNum_++;
+		whoseTurn_ *= -1;
+
+		if (AfterList_.empty()) return;
+
+		pCurBoard_ = AfterList_.front();
+		AfterList_.pop_front();
+
+		historyList_.push_front(pCurBoard_);
+	}
+
 private:
 	list<GoMemento*> historyList_;
+	list<GoMemento*> AfterList_;
 	GoMemento* pCurBoard_;
 	int whoseTurn_;    // -- ´ÙÀ½ µÑ Â÷·Ê(1 Àº ¹é, -1 Àº Èæ)
 	int totalStoneNum_;
+	bool bReact;
 };

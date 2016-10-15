@@ -139,7 +139,7 @@ int main()
 
 	system("pause");
 
-	board.RetractStone(1);  //물리기
+	board.RetractStone(2);  //물리기
 	board.PrintBoard();
 
 	system("pause");

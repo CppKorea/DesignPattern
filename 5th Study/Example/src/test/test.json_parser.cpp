@@ -60,6 +60,12 @@ namespace test
 
 }
 
+/*
+// !!! On work !!!
+TEST_CASE("json::object_builder") 
+{
+    using namespace json;
+}
 
 TEST_CASE("json::parser")
 {
@@ -145,3 +151,4 @@ TEST_CASE("json::array_parser")
 
     }
 }
+*/

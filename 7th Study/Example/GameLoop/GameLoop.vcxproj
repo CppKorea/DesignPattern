@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B0822618-4DDD-46C9-8D55-DF58D0B9CA21}</ProjectGuid>
-    <RootNamespace>DoubleBuffer</RootNamespace>
+    <ProjectGuid>{15C9E4CD-56AE-47A5-A517-F8399A223045}</ProjectGuid>
+    <RootNamespace>GameLoop</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -111,12 +111,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="games.h" />
-    <ClInclude Include="games\buffer.h" />
-    <ClInclude Include="games\FrameBuffer.h" />
+    <ClInclude Include="games\avatar.h" />
+    <ClInclude Include="games\base.h" />
     <ClInclude Include="games\game.h" />
     <ClInclude Include="games\memory.hpp" />
-    <ClInclude Include="games\screen.h" />
+    <ClInclude Include="games\skills.h" />
     <ClInclude Include="games\timer.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="games\avatar.cpp" />
+    <ClCompile Include="games\game.cpp" />
+    <ClCompile Include="games\main.cpp" />
+    <ClCompile Include="games\skills.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

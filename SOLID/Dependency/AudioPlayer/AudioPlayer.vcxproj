@@ -112,6 +112,12 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Loader.h" />
+    <ClInclude Include="Options.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Sound.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

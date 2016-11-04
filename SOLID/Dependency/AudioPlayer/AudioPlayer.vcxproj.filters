@@ -13,4 +13,18 @@
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Sound.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Loader.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Options.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>

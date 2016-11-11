@@ -68,7 +68,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>..\Library\yse-soundengine\include;..\Library\irrKlang_1_5\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -110,13 +112,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Engine\EngineirrKlang.cpp" />
+    <ClCompile Include="Engine\EngineYSE.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Loader.h" />
+    <ClInclude Include="Engine\EngineirrKlang.h" />
+    <ClInclude Include="Engine\EngineYSE.h" />
     <ClInclude Include="Options.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="Sound.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Library\irrKlang_1_5\bin\winx64-visualStudio\ikpFlac.dll" />
+    <None Include="..\Library\irrKlang_1_5\bin\winx64-visualStudio\ikpMP3.dll" />
+    <None Include="..\Library\irrKlang_1_5\bin\winx64-visualStudio\irrKlang.dll" />
+    <None Include="..\Library\irrKlang_1_5\lib\Winx64-visualStudio\irrKlang.exp" />
+    <None Include="..\Library\yse-soundengine\lib\libyse64.dll" />
+    <None Include="..\Library\yse-soundengine\lib\libyse64.exp" />
+    <None Include="..\Resource\IWBTB_Boss5_Sonic.ogg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\Library\irrKlang_1_5\lib\Winx64-visualStudio\irrKlang.lib" />
+    <Library Include="..\Library\yse-soundengine\lib\libyse64.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\Resource\chord.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

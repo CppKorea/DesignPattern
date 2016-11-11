@@ -27,9 +27,6 @@
     <ClCompile Include="Engine\EngineYSE.cpp">
       <Filter>src\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\EngineirrKlang.cpp">
-      <Filter>src\Engine</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h">
@@ -37,9 +34,6 @@
     </ClInclude>
     <ClInclude Include="Options.h">
       <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\EngineirrKlang.h">
-      <Filter>src\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Engine\EngineYSE.h">
       <Filter>src\Engine</Filter>
@@ -78,6 +72,9 @@
   </ItemGroup>
   <ItemGroup>
     <Media Include="..\Resource\chord.wav">
+      <Filter>res</Filter>
+    </Media>
+    <Media Include="..\Resource\Piano.mp3">
       <Filter>res</Filter>
     </Media>
   </ItemGroup>

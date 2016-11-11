@@ -1,4 +1,5 @@
 #include "./EngineYSE.h"
+#include "EngineirrKlang.h"
 
 namespace Pattern
 {
@@ -139,7 +140,6 @@ namespace Pattern
             *ref -= 1;
         }
         else {
-            impl->stop();
             delete ref;
             delete impl;
         }

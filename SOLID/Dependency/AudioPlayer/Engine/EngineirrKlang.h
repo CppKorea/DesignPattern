@@ -18,7 +18,10 @@ namespace Pattern
 
     class EngineirrKlang 
     {
-        irrklang::ISoundEngine *eng;
+        friend class Option::Volume;
+
+        static std::uint32_t&          RefCount();
+        static irrklang::ISoundEngine& getDevice();
 
 
     public: // ---- ---- ---- ---- ----
@@ -43,22 +46,26 @@ namespace Pattern
 
         void sleep(int ms);
 
+    
     };
 
     class EngineirrKlang::Sound
     {
+        friend class EngineirrKlang;
+
+        irrklang::ISound* impl = nullptr;
     private:
         void play_impl();
         void pause_impl();
         void resume_impl();
         void stop_impl();
 
+        explicit Sound(irrklang::ISound*);
     public:
-        explicit Sound(const char* _fname);
-        ~Sound();
+        ~Sound() = default;
 
-        Sound(Sound&);
-        Sound& operator=(Sound&);
+        Sound(Sound&) = default;
+        Sound& operator=(Sound&) = default;
 
         bool is_valid()     noexcept;
         bool is_playing()   noexcept;
@@ -66,7 +73,7 @@ namespace Pattern
     };
 
 
-
+    /*
     namespace Option
     {
         class Volume
@@ -77,10 +84,11 @@ namespace Pattern
 
             void    set(EngineirrKlang& _engine);
             float   get(EngineirrKlang& _engine);
+
         };
 
     }// namespace Option
-
+    */
 }// namespace Pattern
 
 #endif

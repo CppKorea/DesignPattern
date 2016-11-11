@@ -70,6 +70,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>..\Library\yse-soundengine\include;..\Library\irrKlang_1_5\include;$(IncludePath)</IncludePath>
+    <OutDir>..\Build</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -112,12 +113,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Engine\EngineirrKlang.cpp" />
     <ClCompile Include="Engine\EngineYSE.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine\EngineirrKlang.h" />
     <ClInclude Include="Engine\EngineYSE.h" />
     <ClInclude Include="Options.h" />
     <ClInclude Include="Player.h" />
@@ -137,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <Media Include="..\Resource\chord.wav" />
+    <Media Include="..\Resource\Piano.mp3" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

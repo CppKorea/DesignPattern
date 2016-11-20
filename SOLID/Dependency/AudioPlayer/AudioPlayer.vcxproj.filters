@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="lib">
+      <UniqueIdentifier>{9ae3fda5-8b9d-47ee-8608-3feabbb7ec77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{fdfade26-7252-490c-96e3-b21c99915cfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\yse">
+      <UniqueIdentifier>{c5f82917-d0df-4f4c-ad05-10a75320e092}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\irrKlang">
+      <UniqueIdentifier>{8d31fa91-133c-481c-bf9b-32cc1a8465d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Engine">
+      <UniqueIdentifier>{002a368c-1a26-4a89-82fc-f98bbb42f2af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="res">
+      <UniqueIdentifier>{49285b48-f424-4284-94d5-d0540f092018}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\EngineYSE.cpp">
+      <Filter>src\Engine</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Player.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Options.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\EngineYSE.h">
+      <Filter>src\Engine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Library\yse-soundengine\lib\libyse64.dll">
+      <Filter>lib\yse</Filter>
+    </None>
+    <None Include="..\Library\yse-soundengine\lib\libyse64.exp">
+      <Filter>lib\yse</Filter>
+    </None>
+    <None Include="..\Library\irrKlang_1_5\lib\Winx64-visualStudio\irrKlang.exp">
+      <Filter>lib\irrKlang</Filter>
+    </None>
+    <None Include="..\Library\irrKlang_1_5\bin\winx64-visualStudio\ikpFlac.dll">
+      <Filter>lib\irrKlang</Filter>
+    </None>
+    <None Include="..\Library\irrKlang_1_5\bin\winx64-visualStudio\ikpMP3.dll">
+      <Filter>lib\irrKlang</Filter>
+    </None>
+    <None Include="..\Library\irrKlang_1_5\bin\winx64-visualStudio\irrKlang.dll">
+      <Filter>lib\irrKlang</Filter>
+    </None>
+    <None Include="..\Resource\IWBTB_Boss5_Sonic.ogg">
+      <Filter>res</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\Library\yse-soundengine\lib\libyse64.lib">
+      <Filter>lib\yse</Filter>
+    </Library>
+    <Library Include="..\Library\irrKlang_1_5\lib\Winx64-visualStudio\irrKlang.lib">
+      <Filter>lib\irrKlang</Filter>
+    </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\Resource\chord.wav">
+      <Filter>res</Filter>
+    </Media>
+    <Media Include="..\Resource\Piano.mp3">
+      <Filter>res</Filter>
+    </Media>
+  </ItemGroup>
+</Project>

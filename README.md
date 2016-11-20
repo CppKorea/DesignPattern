@@ -46,10 +46,10 @@
 - 8월 20일 : 스터디 2회차 (Prototype, Adapter, Bridge, Composite)
 - 9월 3일 : 스터디 3회차 (Decorator, Façade, Flyweight, Proxy)
 - 9월 10일 : 스터디 4회차 (Chain of Responsibility, Command, Interpreter, Iterator)
-- 9월 24일 : 스터디 5회차 (Mediator, Memento, Observer, State)
-- 10월 8일 : 스터디 6회차 (Strategy, Template Method, Visitor, Double buffer)
-- 10월 22일 : 스터디 7회차 (Game Loop, Update Method, Bytecode, Subclass Sandbox)
-- 10월 29일 : 스터디 8회차 (Type Object, Component, Event Queue, Service Locator)
+- 10월 1일 : 스터디 5회차 (Mediator, Memento, Observer, State)
+- 10월 15일 : 스터디 6회차 (Strategy, Template Method, Visitor, Double buffer)
+- 10월 29일 : 스터디 7회차 (Game Loop, Update Method, Bytecode, Subclass Sandbox)
+- 11월 12일 : 스터디 8회차 (Type Object, Component, Event Queue, Service Locator)
 
 ## 비용
 
